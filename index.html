@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div class="div-todo">
+    <div class="flex flex-col">
+        <div class="div-todo flex flex-col w-[20vw] bg-[red] mx-[auto] my-[0]">
             <div>Todo List</div>
-            <div id="error" style="display: none;">Please fill the empty space</div>
-            <div class="div-enter">
+            <div id="error" class="animate__animated animate__shakeX animate__infinite" style="display: none;">Please fill the empty space</div>
+            <div class="div-enter flex">
                 <input id="inputTodo" type="text">
                 <button onclick="addTodo()" style="background-color: aqua;">Add</button>
             </div>
