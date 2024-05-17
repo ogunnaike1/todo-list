@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="div-todo">
+            <div>Todo List</div>
+            <div id="error" style="display: none;">Please fill the empty space</div>
+            <div class="div-enter">
+                <input id="inputTodo" type="text">
+                <button onclick="addTodo()" style="background-color: aqua;">Add</button>
+            </div>
+            <div style="display: flex; flex-direction: column;" id="showTodo" class="div-listtodo">
+
+            </div>
+        </div>
+        <button onclick="deleteFirstTodo()" style="background-color: aqua;">Delete Fisrt</button>
+        <button onclick="deleteLastTodo()" style="background-color: aqua;">Delete Last</button>
+        <button onclick="deleteAllTodo()" style="background-color: aqua;">Delete All</button>
+    </div>
+    <script>
+        let allTodo = [];
+        function addTodo(){
+            if(inputTodo.value === ''){
+                error.style.display ='block'
+            }else{
+                error.style.display ='none'
+                allTodo.push(inputTodo.value);
+                showAllTodo()
+                inputTodo.value = ''
+            } 
+        }
+        function deleteFirstTodo(){
+            allTodo.shift()
+            showAllTodo()
+        }
+        function deleteLastTodo(){
+            allTodo.pop()
+            showAllTodo()
+        }
+        function deleteAllTodo(){
+            allTodo = [];
+            showAllTodo()
+        }
+
+        function showAllTodo(){
+            showTodo.innerHTML = ''
+            for(let i = 0; i < allTodo.length; i++){
+                showTodo.innerHTML +=  `<div>${i+1}. ${allTodo[i]}</div>`;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
