@@ -22,3 +22,9 @@ function deleteAllTodo(){
     showAllTodo()
 }
 
+function showAllTodo(){
+    showTodo.innerHTML = ''
+    for(let i = 0; i < allTodo.length; i++){
+        showTodo.innerHTML +=  `<div class="border border-solid border-1">${i+1}. ${allTodo[i]}</div>`;
+    }
+}
